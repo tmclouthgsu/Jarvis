@@ -1,0 +1,29 @@
+Camera
+Private location:String
+Private isOn:Boolean
+Private isRecording:Boolean
+Private isStreaming:Boolean
+Private streamingDevice:String
+Camera(newLocation String):Camera
+getIsOn():Boolean
+setIsOn(newIsOn Boolean):void
+getIsRecording():Boolean
+setIsRecording(newIsRecording Boolean):void
+getIsStreaming():Boolean
+setIsStreaming(newIsStreaming Boolean):void
+streamTo(newStreamingDevice String):String
+
+
+
+Alarm
+Private isArmed:Boolean
+Private isSiren:Boolean
+
+
+Alarm(newAlarm String,newIsArmed String):Alarm
+getIsSiren():Boolean
+setIsSiren(Boolean):void
+getIsArmed():Boolean
+setIsArmed(newIsArmed Boolean):void
+
+
