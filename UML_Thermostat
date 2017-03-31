@@ -1,0 +1,30 @@
++Thermostat:
++Data Fields: 
+
++isLow = int
++isMedium = int
++isHigh = int
++isOn = private Boolean
++isOff = private Boolean
++checkTemperature = double 
++isTime = int
++isCool [ not sure what these should be] ??
++isHot [not sure what these should be] help??
+
+Constructors & Methods
+
++Thermostat()
++Thermostat (new Thermostat: double
++setCheckTemperature = double
++setIsOn = void Boolean
++setIsOff = void Boolean
++setIsCool = ??  
++setIsHot  = ??
++turIsnOn = void Boolean
++turIsnOff = void Boolean
++setIsTime = int
++getCheckTemerature = double
++getIsTime = int
++getIsCool = ??
++getIsHot = ??
+
