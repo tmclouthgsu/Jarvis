@@ -1,0 +1,10 @@
++Curtain
++isOpen : Private Boolean
++isClosed: Private Boolean
++
++
++Curtain (newCurtain String, newIsOpen Boolean) : Curtain
++getIsOpen(): Boolean
++setIsOpen(): void boolean
++getIsClosed(): Boolean
++setIsClosed(): void boolean
