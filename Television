@@ -1,0 +1,19 @@
+Television:
+
+brand : private String
+volume : private  int
+channel = private int
+isOn(): boolean
+isOff(): Boolean
+
+
+getVolume(): private int
+setVolumeUp(): private int
+setVolumeDown(): private int
+setChannel(): private int
+setChannelup(): private int
+setChanneldown(): private int
+getIsOn(): boolean
+getIsOff(): boolean
+setIsOff(): boolean
+setIsOn(): Boolean
