@@ -1,0 +1,12 @@
+Toaster
+
+isOn: boolean
+isOff: boolean
+tempurature: double
+
+tempUp(): double
+tempDown(): double
+getTemp(): double
+setTemp(): double
+setIsOn(): boolean 
+setIsOff(): boolean
