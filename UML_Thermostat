@@ -1,30 +1,36 @@
 +Thermostat:
 +Data Fields: 
 
-+isLow = int
-+isMedium = int
-+isHigh = int
 +isOn = private Boolean
 +isOff = private Boolean
 +checkTemperature = double 
 +isTime = int
-+isCool [ not sure what these should be] ??
-+isHot [not sure what these should be] help??
++isAcOn [ not sure what these should be] ??
++isHeatOn [not sure what these should be] help??
 
 Constructors & Methods
 
 +Thermostat()
-+Thermostat (new Thermostat: double
++Thermostat (new Thermostat: double)
 +setCheckTemperature = double
 +setIsOn = void Boolean
 +setIsOff = void Boolean
-+setIsCool = ??  
-+setIsHot  = ??
++setIsAcOn = ??  
++setIsHeatOn  = ??
 +turIsnOn = void Boolean
 +turIsnOff = void Boolean
 +setIsTime = int
 +getCheckTemerature = double
 +getIsTime = int
-+getIsCool = ??
-+getIsHot = ??
++getIsAccOn = ??
++getIsHeatOn = ??
 
+
+
+
+layer one words: 
+heating
+air
+conditioning
+House
+thermostat
