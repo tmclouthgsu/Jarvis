@@ -1,0 +1,28 @@
+
+Door:
+	
+private int doorCode: 
+private isOpen: boolean
+private isClose: boolean
+private isLock: boolean
+private isUnlock; boolean
+getdoorType()
+getIsOpen()
+getIsClose()
+getIsLock()
+getIsUnlock()
+setDoorType()
+setIsOpen()
+setIsLock()
+setIsUnlock()
+
+
+
+Lights:
+
+private isOn(): Boolean
+private isOff(): Boolean
+private powerSave():boolean
+private adjustBrightness()
+
+
