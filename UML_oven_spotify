@@ -18,18 +18,18 @@ Spotify:
 
 isPlaying = private boolean
 isPaused = private Boolean
-getVolumeUp = 
-getVolumeDown =
-get playlist =
-get next song =
-get previous song=
-shuffle=
+getVolumeUp = private int 
+getVolumeDown = private int 
+get playlist = private int
+get next song = private int
+get previous song= private int
+shuffle= private int 
 
 getPLaying() = Boolean 
 getPaused() = Boolean
-setVolumeUp() =
-setVolumeDown()=
-set playlist =
-set new song() =
-set previous song()=
-set shuffle()=
+setVolumeUp() = private int 
+setVolumeDown()= private int 
+set playlist = private int 
+set new song() = private int 
+set previous song()= private int 
+set shuffle()= private int 
