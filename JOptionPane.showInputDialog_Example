@@ -1,0 +1,18 @@
+
+ import javax.swing.*;
+
+public class box
+{
+  public static void main(String[] args)
+  {
+  
+    JFrame frame = new JFrame("demo");
+
+    // prompt the user to enter their task
+    String task = JOptionPane.showInputDialog(frame, "What can I help you with?");
+
+    // get the user's input. note that if they press Cancel, 'task' will be null
+    System.out.printf("The task "+ task + " is done");
+    System.exit(0);
+  }
+}
