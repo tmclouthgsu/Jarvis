@@ -1,0 +1,179 @@
+//PLEASE READ THIS
+/*
+ * In order to use this code you will need to create another test class with a main method, call it what ever you like.
+ * In the main method of that other class you will need to call the constrcutor of the class you make.
+ * 
+ * Here is an example. String test[][] = {{"turn","nn"},{"the","dt"},{"lights","nns"},{"on","in"},{"to","to"},{"420","cd"}};
+ * For example here I would type | Heating testHeating = new Heating(test)
+ * If everything works as expected you should see it match some of the words in your lemArrays and output whatever you tell that case to do.
+ */
+
+public class Heating {
+	
+	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
+	int temp;
+	boolean isOn;
+	
+	//class constructor that accepts the input Array -- edit for your class name
+	public Heating(String[][] taggedText) {
+		this.lemLayer2(taggedText);
+		
+	}
+	//class constructor -- edit for your class name
+	public Heating(){
+		
+	}
+	
+	//lemmatization layer 1 arrays -- edit with your values
+	/*1*/ String[] turnOnACLem = {"On","AC","A/C","air","conditioning"};
+	/*2*/ String[] thermostatLem = {"thermostat","temperature"};
+	/*3*/ String[] televisionLem = {"close"};
+	/*4*/ String[] lightsLem = {"close"};
+	/*5*/ String[] doorsLem = {"close"};
+	/*6*/ String[] ovenLem = {"close"};
+	/*7*/ String[] toasterLem = {"close"};
+	/*8*/ String[] spotifyLem = {"close"};
+	/*9*/ String[] camerasLem = {"close"};
+	/*10*/String[] alarmLem = {"close"};
+	
+	//lemmatiztion must have variables for finding the correct output function -- do not edit
+	public int[] counter = new int[100];
+	int switchNumber;
+	int switchMax;
+	int errorLevel;
+	String errorInput = "";
+	
+	//lemmatization method -- do not edit
+	public int lemLayer2(String[][] sentence){
+		
+		//iterate through sentence and count the matches for each layer 2 word -- edit the names of the arrays to match your layer 2 word arrays.
+		for(int i=0; i<sentence.length;i++){
+			
+			for(int k=0; k<turnOnACLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((turnOnACLem[k].toLowerCase()))){
+				this.counter[1]++;
+				}				
+			}
+			for(int k=0; k<thermostatLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((thermostatLem[k].toLowerCase()))){
+				this.counter[2]++;
+				}				
+			}
+			for(int k=0; k<televisionLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((televisionLem[k].toLowerCase()))){
+				this.counter[3]++;
+				}				
+			}
+			for(int k=0; k<lightsLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((lightsLem[k].toLowerCase()))){
+				this.counter[4]++;
+				}				
+			}
+			for(int k=0; k<doorsLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((doorsLem[k].toLowerCase()))){
+				this.counter[5]++;
+				}				
+			}
+			for(int k=0; k<ovenLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((ovenLem[k].toLowerCase()))){
+				this.counter[6]++;
+				}				
+			}
+			for(int k=0; k<toasterLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((toasterLem[k].toLowerCase()))){
+				this.counter[7]++;
+				}				
+			}
+			for(int k=0; k<spotifyLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((spotifyLem[k].toLowerCase()))){
+				this.counter[8]++;
+				}				
+			}
+			for(int k=0; k<camerasLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((camerasLem[k].toLowerCase()))){
+				this.counter[9]++;
+				}				
+			}
+			for(int k=0; k<alarmLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((alarmLem[k].toLowerCase()))){
+				this.counter[10]++;
+				}				
+			}
+		}
+		
+		//finds the most matched function and returns the number of the function -- do not edit
+		for(int j=0;j<this.counter.length;j++){
+			if(this.counter[j] != 0 && this.counter[j] == this.switchMax){
+				this.errorLevel = 1;
+			}
+			if(this.counter[j]>this.switchMax){
+				this.switchNumber = j;
+				this.switchMax=this.counter[j];
+				this.errorLevel = 0;
+			}
+		}
+		
+		//checks to see if there was not a most matched, and if there was not a most matched it returns an error -- do not edit
+		if(this.errorLevel != 0)
+		{
+			for(int i=0; i<sentence.length;i++){
+				this.errorInput += (sentence[i][0] + " ");
+			}
+			System.out.println("We were unable to determine what change you were trying to make, could you please try this command again:" + this.errorInput);
+			return 99;
+		}
+		
+		//switch based on which array is matched the most number of times 
+		//insert your functions after the sysout and before the break like i have done with case 1.
+		switch (this.switchNumber){
+		
+		case 1: System.out.println("test curtains");
+				turnOnAC(sentence);
+				break;
+		case 2: System.out.println("test thermostat");
+				break;
+		case 3: System.out.println("test television");
+				break;
+		case 4: System.out.println("test lights");
+				break;
+		case 5: System.out.println("test doors");
+				break;
+		case 6: System.out.println("test oven");
+				break;
+		case 7: System.out.println("test toaster");
+				break;
+		case 8: System.out.println("test spotify");
+				break;
+		case 9: System.out.println("test cameras");
+				break;
+		case 10:System.out.println("test alarm");
+				break;
+		default:System.out.println("Nothing in the input sentence matched one of your arrays.");
+				break;
+
+		}
+		
+		
+		return this.switchNumber;
+
+	}		
+	
+	
+
+	
+	
+	
+	//this is where you define all the functions for the class. Go ahead and add all your methods for changing values and opening and closing whatever below.
+	//my code from here on out is only for the heating but you can use it as an example for your classes. 
+	public static void turnOnAC(String[][] input){
+		for(int i=0; i<input.length;i++){
+			if(input[i][1].endsWith("cd") || input[i][1].endsWith("in")){
+				//for(int j=0; j<input.length;j++){
+					//if(input[j][1].endsWith("nn")){
+						System.out.println("Turning the Air Conditioning to " + input[i][0]);
+					//}
+				//}
+			}
+		}
+	}
+}
