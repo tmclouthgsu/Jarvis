@@ -1,0 +1,77 @@
+
+public class Lights {
+
+		
+		//lights variables
+		boolean on = false;
+		
+		//lemmatization layer 2 arrays
+		String[] onLightsLem = {"on"};
+		String[] offLightsLem = {"off"};
+		
+		//lemmatiztion must have variables for finding the correct output function
+		public int[] counter = new int[100];
+		int switchNumber;
+		int switchMax;
+		
+		//lemmatization method
+		public void lemLights(String[][] sentence){
+			
+			//iterate through sentence and count the matches for each layer 2 word
+			for(int i=0; i<sentence[0].length;i++){
+				
+				//1
+				if(sentence[0][i] == onLightsLem[0]){
+					counter[1]++;
+				}
+				
+				//2
+				if(sentence[0][i] == offLightsLem[0]){
+					counter[2]++;
+				}
+			}
+			
+			//finds the most matched function and returns the number of the function
+			for(int j=0;j<counter.length;j++){
+				if(counter[j]>switchMax){
+					switchNumber = j;
+					switchMax=counter[j];
+				}
+				
+			}
+
+			
+			// case statement for picking the function based on the most matched function
+			switch (switchNumber){
+			
+			case 1: onLights();
+					break;
+			case 2: offLights();
+					break;
+			}
+
+		}
+		
+		
+		//functions to be called by switch statement
+		public void onLights(){
+			if(on != true){
+				on = true;
+				System.out.println("Turn on lights");
+			}
+			else{
+				System.out.println("The lights are off");
+			}
+		}	
+		public void offLights(){
+			if(on != false){
+				on = false;
+				System.out.println("Turn off the lights");
+			}
+			else{
+				System.out.println("The lights are on");
+			}
+		}
+		
+
+	}
