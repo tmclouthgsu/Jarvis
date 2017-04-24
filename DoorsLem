@@ -1,0 +1,97 @@
+
+public class Doors {
+		
+		//door variables
+		boolean open = false;
+		boolean lock = false;
+		
+		//lemmatization layer 2 arrays
+		String[] openDoorsLem = {"open"};
+		String[] closeDoorsLem = {"close"};
+		
+		//lemmatiztion must have variables for finding the correct output function
+		public int[] counter = new int[100];
+		int switchNumber;
+		int switchMax;
+		
+		//lemmatization method
+		public void lemDoors(String[][] sentence){
+			
+			//iterate through sentence and count the matches for each layer 2 word
+			for(int i=0; i<sentence[0].length;i++){
+				
+				//1
+				if(sentence[0][i] == openDoorsLem[0]){
+					counter[1]++;
+				}
+				
+				//2
+				if(sentence[0][i] == closeDoorsLem[0]){
+					counter[2]++;
+				}
+			}
+			
+			//finds the most matched function and returns the number of the function
+			for(int j=0;j<counter.length;j++){
+				if(counter[j]>switchMax){
+					switchNumber = j;
+					switchMax=counter[j];
+				}
+				
+			}
+
+			
+			// case statement for picking the function based on the most matched function
+			switch (switchNumber){
+			
+			case 1: openDoors();
+					break;
+			case 2: closeDoors();
+					break;
+			}
+
+		}
+		
+		
+		//functions to be called by switch statement
+		public void openDoors(){
+			if(open != true){
+				open = true;
+				System.out.println("I opened the doors");
+			}
+			else{
+				System.out.println("The doors are arlready open");
+			}
+		}	
+		public void closeDoors(){
+			if(open != false){
+				open = false;
+				System.out.println("I closed the doors");
+			}
+			else{
+				System.out.println("The doors are arlready closed");
+			}
+			
+			public void Locked(){
+				if(lock != false){
+					lock =true;
+					System.out.println("The door is locked");
+			}
+				else{
+					System.out.println("The door is unlocked!");
+				}
+			
+			public void Unlock (){
+				if(lock != true){
+					lock = false;
+					System.out.println("The door is unlock");
+				}
+				else
+					System.out.println("The door is locked")
+				}
+			}
+			}
+		}
+		
+
+	}
