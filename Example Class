@@ -8,172 +8,148 @@
  * If everything works as expected you should see it match some of the words in your lemArrays and output whatever you tell that case to do.
  */
 
-public class Heating {
-	
+public class Alarm {
 	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
-	int temp;
 	boolean isOn;
+	boolean siren;
+	String listOfOps = "Turn Alarm on | Turn Alarm off | Call Police";
 	
-	//class constructor that accepts the input Array -- edit for your class name
-	public Heating(String[][] taggedText) {
-		this.lemLayer2(taggedText);
-		
-	}
 	//class constructor -- edit for your class name
-	public Heating(){
-		
+	public Alarm(){		
+	}
+	
+	//do not edit -- class function that accepts the input Array -- do not edit
+	public void doSomething(String[][] taggedText) {
+		this.lemLayer2(taggedText);
 	}
 	
 	//lemmatization layer 1 arrays -- edit with your values
-	/*1*/ String[] turnOnACLem = {"On","AC","A/C","air","conditioning"};
-	/*2*/ String[] thermostatLem = {"thermostat","temperature"};
-	/*3*/ String[] televisionLem = {"close"};
-	/*4*/ String[] lightsLem = {"close"};
-	/*5*/ String[] doorsLem = {"close"};
-	/*6*/ String[] ovenLem = {"close"};
-	/*7*/ String[] toasterLem = {"close"};
-	/*8*/ String[] spotifyLem = {"close"};
-	/*9*/ String[] camerasLem = {"close"};
-	/*10*/String[] alarmLem = {"close"};
+	/*1*/ String[] turnAlarmOnLem = {"on","on","activ"};
+	/*2*/ String[] turnAlarmOffLem = {"off","disarm","disarm","deactiv"};
+	/*3*/ String[] callPoliceLem = {"police","call","police","emergency","cops","dial"};
+	/*4 String[] lightsLem = {"close"};
+	/*5 String[] doorsLem = {"close"};
+	/*6 String[] ovenLem = {"close"};
+	/*7 String[] toasterLem = {"close"};
+	/*8 String[] spotifyLem = {"close"};
+	/*9 String[] camerasLem = {"close"};
+	/*10String[] alarmLem = {"close"};*/
 	
-	//lemmatiztion must have variables for finding the correct output function -- do not edit
-	public int[] counter = new int[100];
-	int switchNumber;
-	int switchMax;
-	int errorLevel;
-	String errorInput = "";
-	
-	//lemmatization method -- do not edit
+	//do not edit -- lemmatization method -- do not edit
 	public int lemLayer2(String[][] sentence){
+		
+		//do not edit -- lemmatiztion must have variables for finding the correct output function -- do not edit
+		int[] counter = new int[100];
+		int switchNumber = 0;
+		int switchMax = 0;
+		int errorLevel = 0;
+		String errorInput = "";
 		
 		//iterate through sentence and count the matches for each layer 2 word -- edit the names of the arrays to match your layer 2 word arrays.
 		for(int i=0; i<sentence.length;i++){
 			
-			for(int k=0; k<turnOnACLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((turnOnACLem[k].toLowerCase()))){
-				this.counter[1]++;
+			for(int k=0; k<turnAlarmOnLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((turnAlarmOnLem[k].toLowerCase()))){
+				counter[1]++;
 				}				
 			}
-			for(int k=0; k<thermostatLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((thermostatLem[k].toLowerCase()))){
-				this.counter[2]++;
+			for(int k=0; k<turnAlarmOffLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((turnAlarmOffLem[k].toLowerCase()))){
+				counter[2]++;
 				}				
 			}
-			for(int k=0; k<televisionLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((televisionLem[k].toLowerCase()))){
-				this.counter[3]++;
-				}				
-			}
-			for(int k=0; k<lightsLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((lightsLem[k].toLowerCase()))){
-				this.counter[4]++;
-				}				
-			}
-			for(int k=0; k<doorsLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((doorsLem[k].toLowerCase()))){
-				this.counter[5]++;
-				}				
-			}
-			for(int k=0; k<ovenLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((ovenLem[k].toLowerCase()))){
-				this.counter[6]++;
-				}				
-			}
-			for(int k=0; k<toasterLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((toasterLem[k].toLowerCase()))){
-				this.counter[7]++;
-				}				
-			}
-			for(int k=0; k<spotifyLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((spotifyLem[k].toLowerCase()))){
-				this.counter[8]++;
-				}				
-			}
-			for(int k=0; k<camerasLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((camerasLem[k].toLowerCase()))){
-				this.counter[9]++;
-				}				
-			}
-			for(int k=0; k<alarmLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((alarmLem[k].toLowerCase()))){
-				this.counter[10]++;
+			for(int k=0; k<callPoliceLem.length;k++){
+				if(sentence[i][0].toLowerCase().contains((callPoliceLem[k].toLowerCase()))){
+				counter[3]++;
 				}				
 			}
 		}
 		
-		//finds the most matched function and returns the number of the function -- do not edit
-		for(int j=0;j<this.counter.length;j++){
-			if(this.counter[j] != 0 && this.counter[j] == this.switchMax){
-				this.errorLevel = 1;
+		//do not edit -- finds the most matched function and returns the number of the function -- do not edit
+		for(int j=0;j<counter.length;j++){
+			if(counter[j] != 0 && counter[j] == switchMax){
+				errorLevel = 1;
 			}
-			if(this.counter[j]>this.switchMax){
-				this.switchNumber = j;
-				this.switchMax=this.counter[j];
-				this.errorLevel = 0;
+			if(counter[j]>switchMax){
+				switchNumber = j;
+				switchMax=counter[j];
+				errorLevel = 0;
 			}
 		}
 		
 		//checks to see if there was not a most matched, and if there was not a most matched it returns an error -- do not edit
-		if(this.errorLevel != 0)
+		if(errorLevel != 0)
 		{
 			for(int i=0; i<sentence.length;i++){
-				this.errorInput += (sentence[i][0] + " ");
+				errorInput += (sentence[i][0] + " ");
 			}
-			System.out.println("We were unable to determine what change you were trying to make, could you please try this command again:" + this.errorInput);
+			System.out.println("We were unable to determine what change you were trying to make, could you please try to rephrase this command:" + errorInput);
 			return 99;
 		}
 		
 		//switch based on which array is matched the most number of times 
 		//insert your functions after the sysout and before the break like i have done with case 1.
-		switch (this.switchNumber){
+		switch (switchNumber){
 		
-		case 1: System.out.println("test curtains");
-				turnOnAC(sentence);
+		case 1: //System.out.println("alarm method turnOn");
+				this.turnOn();
 				break;
-		case 2: System.out.println("test thermostat");
+		case 2: //System.out.println("alarm method turnOff");
+				this.turnOff();
 				break;
-		case 3: System.out.println("test television");
+		case 3: //System.out.println("alarm method callPolice");
+				this.callPolice();
 				break;
-		case 4: System.out.println("test lights");
+		case 4: System.out.println("heating method 4");
 				break;
-		case 5: System.out.println("test doors");
+		case 5: System.out.println("heating method 5");
 				break;
-		case 6: System.out.println("test oven");
+		case 6: System.out.println("heating method 6");
 				break;
-		case 7: System.out.println("test toaster");
+		case 7: System.out.println("heating method 7");
 				break;
-		case 8: System.out.println("test spotify");
+		case 8: System.out.println("heating method 8");
 				break;
-		case 9: System.out.println("test cameras");
+		case 9: System.out.println("heating method 9");
 				break;
-		case 10:System.out.println("test alarm");
+		case 10:System.out.println("heating method 10");
 				break;
-		default:System.out.println("Nothing in the input sentence matched one of your arrays.");
+		default:System.out.println("We were unable to find a command that matched your request.");
+				System.out.println("The list of availble operations for the Alarm are: " + listOfOps);
 				break;
+		}		
+		return switchNumber;
+	}
 
-		}
-		
-		
-		return this.switchNumber;
-
-	}		
-	
-	
-
-	
 	
 	
 	//this is where you define all the functions for the class. Go ahead and add all your methods for changing values and opening and closing whatever below.
 	//my code from here on out is only for the heating but you can use it as an example for your classes. 
-	public static void turnOnAC(String[][] input){
-		for(int i=0; i<input.length;i++){
-			if(input[i][1].endsWith("cd") || input[i][1].endsWith("in")){
-				//for(int j=0; j<input.length;j++){
-					//if(input[j][1].endsWith("nn")){
-						System.out.println("Turning the Air Conditioning to " + input[i][0]);
-					//}
-				//}
-			}
+	
+	public void turnOff(){
+		if(this.isOn == true){
+		this.isOn = false;
+		System.out.println("The alarm is now off");
+		}
+		else{
+			System.out.println("The alarm is already off");
 		}
 	}
+	public void turnOn(){
+		if(this.isOn == false){
+		this.isOn = true;
+		System.out.println("The alarm is now on");
+		}
+		else{
+			System.out.println("The alarm is already on");
+		}
+	}	
+	public void callPolice(){
+		System.out.println("I have called the police and alerted them with your current location, they will be on the way shortly");
+	}
 }
+
+	
+	
+
+	
