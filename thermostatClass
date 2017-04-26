@@ -1,0 +1,108 @@
+
+public class thermostat {
+
+	boolean cutOn = false;
+	
+	double checktemperature;
+	int temerature = 74;
+	int setTemperature;
+	String listOfOps = "Cut on Thermostat | Turn off Thermostat |Check Temerature| Set Temperature";
+
+	
+	
+	String[] cutOnLem = {"on","cut","turn"};
+	String[] turnOffLem = {"off"};
+	String[] checkTemperatureLem = {"check","temerature","degree","current"};
+	String[] setTempLem ={""};
+	public int[] counter = new int[100];
+	
+	int switchNumber;
+	int switchMax;
+
+
+
+	public void lemThermostat(String[][] sentence){
+	for(int i=0; i<sentence[0].length;i++){
+		
+		//1
+		if(sentence[0][i] == cutOnLem[0]){
+			counter[1]++;
+		}
+		
+		//2
+		if(sentence[0][i] == turnOffLem[0]){
+			counter[2]++;
+		}
+		//3
+		if(sentence[0][i] == checkTemperatureLem[0]){
+			counter[3]++;
+		}
+		
+		
+		
+		
+for(int j=0;j<counter.length;j++){
+			if(counter[j]>switchMax){
+				switchNumber = j;
+				switchMax=counter[j];
+			}
+			
+		}
+
+		
+		// case statement for picking the function based on the most matched function
+		switch (switchNumber){
+		
+		case 1: cutOn();
+				break;
+		case 2: turnOff();
+				break;
+		case 3: checkTemperature();
+		break;
+		
+		case 4: setTemperature();
+		break;
+		
+		}//end switch case
+
+	}//end for loop
+		
+	}//end lemString
+public void cutOn()
+{
+	if(cutOn != true){
+		cutOn = true;
+		System.out.println("The thermostat is on");
+	}
+	else{
+		System.out.println("The thermostat is off");
+	}
+
+}// end of isOn if else
+
+public void turnOff()
+{
+	if(cutOn != false){
+		cutOn = false;
+		System.out.println("The thermostat is off.");
+	}
+	else{
+		System.out.println("the thermostat is already off");
+	}
+
+}
+public int checkTemperature()
+{
+	return temerature;
+}
+
+public int setTemperature()
+{
+	return setTemperature; 
+}
+
+
+
+
+}//end class
+	
