@@ -1,0 +1,21 @@
+import javax.swing.JOptionPane;
+
+public class box{
+	public static void main(String[] args){
+		
+		String[]sentence = new String[10];
+		
+		for(int i = 0; i<10; i++)
+		{
+			sentence[i] = JOptionPane.showInputDialog("Hello, I'm Jarvis. What Can I help you with today?");
+		}
+	
+	
+	
+	}
+	
+}
+
+
+
+//youtube link i was using: https://www.youtube.com/watch?v=VAGpbAbSRTA&t=436s
