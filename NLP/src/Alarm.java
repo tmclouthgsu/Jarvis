@@ -44,6 +44,7 @@ public class Alarm {
 		int switchMax = 0;
 		int errorLevel = 0;
 		String errorInput = "";
+		Window output = new Window();
 		
 		//iterate through sentence and count the matches for each layer 2 word -- edit the names of the arrays to match your layer 2 word arrays.
 		for(int i=0; i<sentence.length;i++){
@@ -83,7 +84,7 @@ public class Alarm {
 			for(int i=0; i<sentence.length;i++){
 				errorInput += (sentence[i][0] + " ");
 			}
-			System.out.println("We were unable to determine what change you were trying to make, could you please try to rephrase this command:" + errorInput);
+			output.makeOutputWindow("We were unable to determine what change you were trying to make, could you please try to rephrase this command:" + errorInput);
 			return 99;
 		}
 		
@@ -114,8 +115,8 @@ public class Alarm {
 				break;
 		case 10:System.out.println("heating method 10");
 				break;
-		default:System.out.println("We were unable to find a command that matched your request.");
-				System.out.println("The list of availble operations for the Alarm are: " + listOfOps);
+		default:output.makeOutputWindow("We were unable to find a command that matched your request.");
+				output.makeOutputWindow("The list of availble operations for the Alarm are: " + listOfOps);
 				break;
 		}		
 		return switchNumber;
@@ -127,25 +128,28 @@ public class Alarm {
 	//my code from here on out is only for the heating but you can use it as an example for your classes. 
 	
 	public void turnOff(){
+		Window output = new Window();
 		if(this.isOn == true){
 		this.isOn = false;
-		System.out.println("The alarm is now off");
+		output.makeOutputWindow("The alarm is now off");
 		}
 		else{
-			System.out.println("The alarm is already off");
+			output.makeOutputWindow("The alarm is already off");
 		}
 	}
 	public void turnOn(){
+		Window output = new Window();
 		if(this.isOn == false){
 		this.isOn = true;
-		System.out.println("The alarm is now on");
+		output.makeOutputWindow("The alarm is now on");
 		}
 		else{
-			System.out.println("The alarm is already on");
+			output.makeOutputWindow("The alarm is already on");
 		}
 	}	
 	public void callPolice(){
-		System.out.println("I have called the police and alerted them with your current location, they will be on the way shortly");
+		Window output = new Window();
+		output.makeOutputWindow("I have called the police and alerted them with your current location, they will be on the way shortly");
 	}
 }
 

@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class Jarvis {
 
@@ -7,6 +8,7 @@ public class Jarvis {
 	//INSTRUCTIONS ON USING NEW JARVIS FILE - Uncomment the object you are testing, make sure your file and class name are the same as the one listed below.
 	//Then Uncomment the test code under the case you are testing.
 	//change the string to match something in your code and see if it works!!
+	
 	
 	static Alarm testAlarm = new Alarm();
 	//static Curtain testCurtain = new Curtain();
@@ -18,15 +20,19 @@ public class Jarvis {
 	//static Spotify testSpotify = new Spotify();
 	//static Door testDoor = new Door();
 	//static Toaster testToaster = new Toaster();
+	
+	static Layer1Filter device = new Layer1Filter();
+	static POSTagger tagger = new POSTagger();
 
 	public static void main(String[] args) throws Exception, IOException {
-		String[] input = {"Turn the alarm on","Turn the alarm off","Turn the alarm"};
+		Window inputWindow = new Window();
+		String[] input = inputWindow.makeInputWindow().split(Pattern.quote("."));
+			
 		
 		// case statement for picking the function based on the most matched function
 		for(int i=0;i<input.length;i++)
 		{
-			Layer1Filter device = new Layer1Filter();
-			POSTagger tagger = new POSTagger();
+
 			String[][] taggedInput = tagger.tag(input[i]);
 			
 		switch (device.lemLayer1(taggedInput)){
