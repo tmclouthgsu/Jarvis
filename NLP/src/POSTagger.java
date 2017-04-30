@@ -5,8 +5,7 @@ import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 public class POSTagger {
 	
 	public static String[][] convertToArray(String input){
-		String lowerInput = input.toLowerCase();
-		String[] breakdown = lowerInput.split(" ");
+		String[] breakdown = input.toLowerCase().split(" ");
 		String[][] tagSplit = new String[breakdown.length][2];
 		for(int i=0;i<breakdown.length;i++){
 			tagSplit[i] = breakdown[i].split("/");
@@ -26,6 +25,7 @@ public class POSTagger {
         String taggedString = tagger.tagString(input);
         
         String[][] taggedArray = convertToArray(taggedString);
+        
         
         return taggedArray;
 	}

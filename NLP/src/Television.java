@@ -16,7 +16,7 @@ public class Television {
 			this.lemLayer2(taggedText);
 		}
 		
-		//lemmatization layer 1 arrays -- edit with your values
+		//lemmatization layer 2 arrays -- edit with your values
 		/*1*/ String[] setVolumeLem = {"volume", "sound"};
 		/*2*/ String[] setChannelLem = {"channel" , "station"};
 		/*3*/ String[] setPowerOnLem = {"on"};
@@ -54,12 +54,12 @@ public class Television {
 				}				
 			}
 			for(int k=0; k<setPowerOnLem.length;k++){
-				if(sentence[i][0].toLowerCase().startsWith((setPowerOnLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().equals((setPowerOnLem[k].toLowerCase()))){
 				counter[3]++;
 				}				
 			}
 			for(int k=0; k<setPowerOffLem.length;k++){
-				if(sentence[i][0].toLowerCase().startsWith((setPowerOffLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().equals((setPowerOffLem[k].toLowerCase()))){
 				counter[4]++;
 				}				
 			}			

@@ -56,12 +56,12 @@ public class Toaster {
 					}				
 				}
 				for(int k=0; k<setOnLem.length;k++){
-					if(sentence[i][0].toLowerCase().contains((setOnLem[k].toLowerCase()))){
+					if(sentence[i][0].toLowerCase().equals((setOnLem[k].toLowerCase()))){
 					counter[4]++;
 					}				
 				}
 				for(int k=0; k<setOffLem.length;k++){
-					if(sentence[i][0].toLowerCase().contains((setOffLem[k].toLowerCase()))){
+					if(sentence[i][0].toLowerCase().equals((setOffLem[k].toLowerCase()))){
 					counter[5]++;
 					}				
 				}
@@ -103,7 +103,7 @@ public class Toaster {
 					this.setLow();
 					break;
 			case 4: //Turns on the toaster if it is off.
-					this.turnOn();;
+					this.turnOn();
 					break;
 			case 5: //Turns off the toaster if it is on.
 					this.turnOff();
@@ -138,7 +138,7 @@ public class Toaster {
 				output.makeOutputWindow("The toaster is already on.");
 			}
 			else{
-				output.makeOutputWindow("Now turning the toaster on.");
+				output.makeOutputWindow("Turning the toaster on.");
 			}
 		}
 		public void turnOff(){
@@ -147,7 +147,7 @@ public class Toaster {
 				output.makeOutputWindow("The toaster is already off");
 			}
 			else{
-				output.makeOutputWindow("Turning off the toaster.");
+				output.makeOutputWindow("Turning the toaster off.");
 			}
 
 

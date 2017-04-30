@@ -17,22 +17,11 @@ public class Thermostat {
 		
 	}
 	
-	
-	
 	String[] cutOnLem = {"on"};
 	String[] turnOffLem = {"off"};
 	String[] checkTemperatureLem = {"check","degree","current","temperature"};
 	String[] setTemperatureLem ={"set","set","temperature"};
-	
-	
 
-	
-
-
-	
-	
-	
-	
 	public int lemLayer2(String[][] sentence){
 		
 		
@@ -64,10 +53,7 @@ public class Thermostat {
 				counter[4]++;
 				}				
 			}
-		
-		
-	}// end for loop
-// end of lemLayer2
+		}
 	
 	//finds the most matched function and returns the number of the function -- do not edit
 	for(int j=0;j<counter.length;j++){
@@ -110,7 +96,7 @@ public class Thermostat {
 	default:output.makeOutputWindow("Nothing in the input sentence matched one of your arrays.");
 	break;
 	
-		}//end case statement 
+		}
 		return switchNumber;
 
 	}
@@ -119,9 +105,7 @@ public class Thermostat {
 		Window output = new Window();
 		this.cutOn = true;
 		for(int k=0; k<input.length;k++){
-			//System.out.println(input[k][1]);
 			if(input[k][1].contains("cd")){
-				//System.out.println(Integer.parseInt(input[k][0]));
 					this.temperature = Integer.parseInt(input[k][0]);
 					output.makeOutputWindow("setting the temperature to " + this.temperature);
 			}				

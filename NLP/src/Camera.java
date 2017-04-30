@@ -1,14 +1,8 @@
-package jarvis;
-
-
 	public class Camera {
+		
 		//variables used by this class, go ahead and edit these as you need for your functions and class templates.
-			boolean on ;
-			boolean off;
-			int isRecording;
-			
-			
-			
+			boolean isOn;
+			int isRecording;			
 			String listOfOps = "Turn Camera on | Turn Camera off | Camera Recording";
 			
 			//class constructor -- edit for your class name
@@ -23,15 +17,8 @@ package jarvis;
 			//lemmatization layer 1 arrays -- edit with your values
 			/*1*/ String[] onLem = {"on"};
 			/*2*/ String[] offLem = {"off"};
-			/*3*/ String[] isRecordingLem = {"start recording, stop recording"};
-			/*4 String[] spotifyLem = {"close"};
-			/*5 String[] ovenLem = {"close"};
-			/*6 String[] spotifyLem = {"close"};
-			/*7 String[] toasterLem = {"close"};
-			/*8 String[] lightsLem = {"close"};
-			/*9 String[] camerasLem = {"close"};
-			/*10String[] alarmLem = {"close"};*/
-			
+			/*3*/ String[] isRecordingLem = {"start","recording"};
+
 			//do not edit -- lemmatization method -- do not edit
 			public int lemLayer2(String[][] sentence){
 				
@@ -47,12 +34,12 @@ package jarvis;
 				for(int i=0; i<sentence.length;i++){
 					
 					for(int k=0; k<onLem.length;k++){
-						if(sentence[i][0].toLowerCase().contains((onLem[k].toLowerCase()))){
+						if(sentence[i][0].toLowerCase().equals((onLem[k].toLowerCase()))){
 						counter[1]++;
 						}				
 					}
 					for(int k=0; k<offLem.length;k++){
-						if(sentence[i][0].toLowerCase().contains((offLem[k].toLowerCase()))){
+						if(sentence[i][0].toLowerCase().equals((offLem[k].toLowerCase()))){
 						counter[2]++;
 						}				
 					}
@@ -101,27 +88,10 @@ package jarvis;
 				case 3: //System.out.println("camera method isRecording");
 						this.isRecording();
 						break;
-				case 4: //System.out.println("Oven method ");
-						break;
-				case 5: System.out.println("Oven method isOff");
-						break;
-				case 6: System.out.println("heating method 6");
-						break;
-				case 7: System.out.println("heating method 7");
-						break;
-				case 8: System.out.println("heating method 8");
-						break;
-				case 9: System.out.println("heating method 9");
-						break;
-				case 10:System.out.println("heating method 10");
-						break;
-				default:output.makeOutputWindow("We were unable to find a command that matched your request.");
-						output.makeOutputWindow("The list of availble operations for the Oven are: " + listOfOps);
+				default:output.makeOutputWindow("We were unable to find a command that matched your request. \nThe list of availble operations for the Oven are: " + listOfOps);
 						break;
 				}		
 				return switchNumber;
-			}
-
 			}
 			
 			//this is where you define all the functions for the class. Go ahead and add all your methods for changing values and opening and closing whatever below.
@@ -129,58 +99,32 @@ package jarvis;
 			
 			public void off(){
 				Window output = new Window();
-				if(this.on == true){
-				this.on = false;
-				output.makeOutputWindow("camera is now off");
-				}
-			
+				if(this.isOn == true){
+				this.isOn = false;
+				output.makeOutputWindow("The camera is now off");
+				}	
 				else{
-					output.makeOutputWindow("camera is already off");
+					output.makeOutputWindow("The camera is already off");
 				}
 			
 			}
 			public void on(){
 				Window output = new Window();
-				if(this.on == false){
-				this.on = true;
-				output.makeOutputWindow("camera is now on");
+				if(this.isOn == false){
+				this.isOn = true;
+				output.makeOutputWindow("The camera is now on");
 				}
-			
 				else{
-					output.makeOutputWindow("camera is already on");
+					output.makeOutputWindow("The camera is already on");
 				}
 			}	
 			
 			private void isRecording(){
 				Window output = new Window();
-				if(this.on = true){
-				output.makeOutputWindow("camera is now recording");
+				if(this.isOn = true){
+				output.makeOutputWindow("The camera is now recording");
 			}
 				else
-					output.makeOutputWindow("camera is not recording");
-				
-					
-				
-				
-					
-				
-			
-			}
-			
-				
-			
-			
-			
-			
-			
-
-				
-			
-			
-				
-		
-		
-
-
-			
+					output.makeOutputWindow("The camera must be on to record");
+			}	
 }
