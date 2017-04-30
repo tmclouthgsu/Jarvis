@@ -15,11 +15,11 @@ public class Jarvis {
 	//static Thermostat testThermostat = new Thermostat();
 	//static Camera testCamera = new Camera();
 	//static Light testLight = new Light();
-	//static Television testTelevision = new Television();
+	static Television testTelevision = new Television();
 	//static Oven testOven = new Oven();
 	//static Spotify testSpotify = new Spotify();
 	//static Door testDoor = new Door();
-	//static Toaster testToaster = new Toaster();
+	static Toaster testToaster = new Toaster();
 	
 	static Layer1Filter device = new Layer1Filter();
 	static POSTagger tagger = new POSTagger();
@@ -27,6 +27,7 @@ public class Jarvis {
 	public static void main(String[] args) throws Exception, IOException {
 		Window inputWindow = new Window();
 		String[] input = inputWindow.makeInputWindow().split(Pattern.quote("."));
+		Window outputWindow = new Window();
 			
 		
 		// case statement for picking the function based on the most matched function
@@ -44,7 +45,7 @@ public class Jarvis {
 		//testThermostat.doSomething(taggedInput);		
 		break;
 		case 3: System.out.println("sending to television");
-		//testTelevision.doSomething(taggedInput);		
+		testTelevision.doSomething(taggedInput);		
 		break;
 		case 4: System.out.println("sending to lights");
 		//testLight.doSomething(taggedInput);		
@@ -56,7 +57,7 @@ public class Jarvis {
 		//testOven.doSomething(taggedInput);
 		break;
 		case 7: System.out.println("sending to toaster");
-		//testToaster.doSomething(taggedInput);
+		testToaster.doSomething(taggedInput);
 		break;
 		case 8: System.out.println("sending to spotify");
 		//testSpotify.doSomething(taggedInput);		
@@ -67,12 +68,13 @@ public class Jarvis {
 		case 10:System.out.println("sending to alarm");
 		testAlarm.doSomething(taggedInput);
 		break;
-		default:System.out.println("Nothing in the input sentence matched one of your object arrays.");
+		default:outputWindow.makeOutputWindow("I was unable to determine what object you wanted me to change, could you please try again. \nThe list of managed devices is: "
+				+ "Curtains | Thermostat | Lights | Television | Doors | Oven | Toaster | Spotify | Cameras | Alarm");
 		break;
 
 		}
-		
 		}
+		System.exit(0);
 
 	}
 

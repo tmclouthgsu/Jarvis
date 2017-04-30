@@ -50,12 +50,12 @@ public class Alarm {
 		for(int i=0; i<sentence.length;i++){
 			
 			for(int k=0; k<turnAlarmOnLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((turnAlarmOnLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().startsWith((turnAlarmOnLem[k].toLowerCase()))){
 				counter[1]++;
 				}				
 			}
 			for(int k=0; k<turnAlarmOffLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((turnAlarmOffLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().startsWith((turnAlarmOffLem[k].toLowerCase()))){
 				counter[2]++;
 				}				
 			}
@@ -115,8 +115,7 @@ public class Alarm {
 				break;
 		case 10:System.out.println("heating method 10");
 				break;
-		default:output.makeOutputWindow("We were unable to find a command that matched your request.");
-				output.makeOutputWindow("The list of availble operations for the Alarm are: " + listOfOps);
+		default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Alarm are: " + listOfOps);
 				break;
 		}		
 		return switchNumber;
@@ -150,6 +149,7 @@ public class Alarm {
 	public void callPolice(){
 		Window output = new Window();
 		output.makeOutputWindow("I have called the police and alerted them with your current location, they will be on the way shortly");
+		return;
 	}
 }
 
