@@ -1,6 +1,6 @@
 
 public class Toaster {
-	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
+
 		boolean isOn;
 		String heat;
 		String listOfOps = "Turn Toaster on | Turn Toaster off | Change setting to low/medium/high";
@@ -90,7 +90,7 @@ public class Toaster {
 			}
 			
 			//switch based on which array is matched the most number of times 
-			//insert your functions after the sysout and before the break like i have done with case 1.
+
 			switch (switchNumber){
 			
 			case 1: //output.makeOutputWindow("alarm method turnOn");
@@ -115,10 +115,6 @@ public class Toaster {
 			return switchNumber;
 		}
 
-		
-		
-		//this is where you define all the functions for the class. Go ahead and add all your methods for changing values and opening and closing whatever below.
-		//my code from here on out is only for the heating but you can use it as an example for your classes. 
 		
 		
 		public void setHigh(){

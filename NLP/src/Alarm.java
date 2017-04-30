@@ -1,13 +1,3 @@
-//PLEASE READ THIS
-/*
- * In order to use this code you will need to create another test class with a main method, call it what ever you like.
- * In the main method of that other class you will need to call the constrcutor of the class you make.
- * 
- * Here is an example. String test[][] = {{"turn","nn"},{"the","dt"},{"lights","nns"},{"on","in"},{"to","to"},{"420","cd"}};
- * For example here I would type | Heating testHeating = new Heating(test)
- * If everything works as expected you should see it match some of the words in your lemArrays and output whatever you tell that case to do.
- */
-
 public class Alarm {
 	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
 	boolean isOn;
@@ -27,13 +17,6 @@ public class Alarm {
 	/*1*/ String[] turnAlarmOnLem = {"on","on","activ"};
 	/*2*/ String[] turnAlarmOffLem = {"off","disarm","disarm","deactiv"};
 	/*3*/ String[] callPoliceLem = {"police","call","police","emergency","cops","dial"};
-	/*4 String[] lightsLem = {"close"};
-	/*5 String[] doorsLem = {"close"};
-	/*6 String[] ovenLem = {"close"};
-	/*7 String[] toasterLem = {"close"};
-	/*8 String[] spotifyLem = {"close"};
-	/*9 String[] camerasLem = {"close"};
-	/*10String[] alarmLem = {"close"};*/
 	
 	//do not edit -- lemmatization method -- do not edit
 	public int lemLayer2(String[][] sentence){
@@ -60,7 +43,7 @@ public class Alarm {
 				}				
 			}
 			for(int k=0; k<callPoliceLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((callPoliceLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().startsWith((callPoliceLem[k].toLowerCase()))){
 				counter[3]++;
 				}				
 			}
@@ -89,7 +72,6 @@ public class Alarm {
 		}
 		
 		//switch based on which array is matched the most number of times 
-		//insert your functions after the sysout and before the break like i have done with case 1.
 		switch (switchNumber){
 		
 		case 1: //System.out.println("alarm method turnOn");
@@ -100,20 +82,6 @@ public class Alarm {
 				break;
 		case 3: //System.out.println("alarm method callPolice");
 				this.callPolice();
-				break;
-		case 4: System.out.println("heating method 4");
-				break;
-		case 5: System.out.println("heating method 5");
-				break;
-		case 6: System.out.println("heating method 6");
-				break;
-		case 7: System.out.println("heating method 7");
-				break;
-		case 8: System.out.println("heating method 8");
-				break;
-		case 9: System.out.println("heating method 9");
-				break;
-		case 10:System.out.println("heating method 10");
 				break;
 		default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Alarm are: " + listOfOps);
 				break;

@@ -9,7 +9,6 @@ public class POSTagger {
 		String[] breakdown = lowerInput.split(" ");
 		String[][] tagSplit = new String[breakdown.length][2];
 		for(int i=0;i<breakdown.length;i++){
-			//System.out.println(breakdown[i]);
 			tagSplit[i] = breakdown[i].split("/");
 			}
 		return tagSplit;
@@ -26,16 +25,8 @@ public class POSTagger {
         // The tagged string
         String taggedString = tagger.tagString(input);
         
-        // Output the result
-        //System.out.println(tagged);
-        
         String[][] taggedArray = convertToArray(taggedString);
         
         return taggedArray;
-        //Layer1Filter myFilter = new Layer1Filter();
-        //myFilter.lemLayer1(taggedArray);
-      
-        //this code breaks the tagged string then checks for a tagged type "cd" and then for each "nn" tagged will print (setting the "nn" to "cd")
-    		//String[] breakdown = tagged.split(" ");
 	}
 }

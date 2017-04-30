@@ -4,11 +4,7 @@ import java.util.regex.Pattern;
 public class Jarvis {
 
 	public Jarvis() {
-	}
-	//INSTRUCTIONS ON USING NEW JARVIS FILE - Uncomment the object you are testing, make sure your file and class name are the same as the one listed below.
-	//Then Uncomment the test code under the case you are testing.
-	//change the string to match something in your code and see if it works!!
-	
+	}	
 	
 	static Alarm testAlarm = new Alarm();
 	//static Curtain testCurtain = new Curtain();

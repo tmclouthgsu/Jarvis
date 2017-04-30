@@ -101,7 +101,7 @@ public class Layer1Filter {
 				for(int i=0; i<sentence.length;i++){
 					errorInput += (sentence[i][0] + " ");
 				}
-				System.out.println("We were unable to determine what object you were trying to make changes to, could you please try this command again:" + errorInput);
+				System.out.println("I was unable to determine what object you were trying to manage, could you please try this command again:" + errorInput);
 				return 99;
 			}
 			

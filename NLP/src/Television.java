@@ -1,8 +1,9 @@
 
 public class Television {
-	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
+
+	
 		int volume = 15;
-		int channel = 50;
+		int channel = 0;
 		boolean powerOn = false;
 		String listOfOps = "Turn Television On | Turn Television off | Set channel | Set Volume";
 		
@@ -87,7 +88,6 @@ public class Television {
 			}
 			
 			//switch based on which array is matched the most number of times 
-			//insert your functions after the sysout and before the break like i have done with case 1.
 			switch (switchNumber){
 			
 			case 1: setVolume(sentence);
@@ -105,13 +105,8 @@ public class Television {
 		}
 
 		
-		
-		//this is where you define all the functions for the class. Go ahead and add all your methods for changing values and opening and closing whatever below.
-		//my code from here on out is only for the heating but you can use it as an example for your classes. 
-		
 		public void setChannel(String[][]input){
 			Window output = new Window();
-			//channel = this.channel;
 			for(int i=0; i<input.length;i++){
 				if(input[i][1].endsWith("cd")){
 					if(Integer.parseInt(input[i][0]) > 0 && Integer.parseInt(input[i][0]) <= 999){
@@ -121,7 +116,6 @@ public class Television {
 					else{
 						output.makeOutputWindow("This channel is not available. Please select a channel between 1 and 999");
 					}
-					//put channel for loop 1-1000
 				}
 			}
 		}
@@ -130,14 +124,13 @@ public class Television {
 			for(int i=0; i<input.length;i++){
 				if(input[i][1].endsWith("cd")){
 					output.makeOutputWindow("Setting volume to " + input[i][0] + ".");
-				}// set volume loop 1-50
+				}
 			}
 			
 		}
 		
 		public void setPowerOn(){
 			Window output = new Window();
-			//powerOn = !powerOn;
 			if(powerOn == false){
 				powerOn = !powerOn;
 				output.makeOutputWindow("The television has been turned on.");
