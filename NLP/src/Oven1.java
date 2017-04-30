@@ -1,7 +1,7 @@
 package jarvis;
 
 
-public class Oven1 {
+public class Oven {
 	//variables used by this class, go ahead and edit these as you need for your functions and class templates.
 		boolean isOn ;
 		boolean isOff;
@@ -14,7 +14,7 @@ public class Oven1 {
 		String listOfOps = "Turn Oven on | Turn Oven off | Set Temperature of Oven | Remaining Time of oven | Oven Heating";
 		
 		//class constructor -- edit for your class name
-		public Oven1(){		
+		public Oven(){		
 		}
 		
 		//do not edit -- class function that accepts the input Array -- do not edit
