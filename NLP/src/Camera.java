@@ -5,7 +5,7 @@ package jarvis;
 		//variables used by this class, go ahead and edit these as you need for your functions and class templates.
 			boolean on ;
 			boolean off;
-			String isRecording;
+			int isRecording;
 			
 			
 			
