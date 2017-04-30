@@ -23,7 +23,7 @@ package jarvis;
 			//lemmatization layer 1 arrays -- edit with your values
 			/*1*/ String[] onLem = {"on"};
 			/*2*/ String[] offLem = {"off"};
-			/*3*/ String[] isRecordingLem = {"start recording left"};
+			/*3*/ String[] isRecordingLem = {"start recording, stop recording"};
 			/*4 String[] spotifyLem = {"close"};
 			/*5 String[] ovenLem = {"close"};
 			/*6 String[] spotifyLem = {"close"};
