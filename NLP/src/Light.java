@@ -13,14 +13,14 @@ public class Light {
 	}
 	
 	//lemmatization layer 1 arrays -- edit with your values
-	/*1*/ String[] turnLightsOnLem = {"on","on","activ"};
-	/*2*/ String[] turnLightsOffLem = {"off","off","disarm","deactiv"};
+	/*1*/ String[] turnLightsOnLem = {"on","on"};
+	/*2*/ String[] turnLightsOffLem = {"off","off"};
 
 	//do not edit -- lemmatization method -- do not edit
 	public int lemLayer2(String[][] sentence){
 		
 		//do not edit -- lemmatiztion must have variables for finding the correct output function -- do not edit
-		int[] counter = new int[100];
+		int[] counter = new int[3];
 		int switchNumber = 0;
 		int switchMax = 0;
 		int errorLevel = 0;
@@ -75,7 +75,7 @@ public class Light {
 		case 2: //System.out.println("light method turnOff");
 				this.turnLightsOff();
 				break;
-		default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Alarm are: " + listOfOps);
+		default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Lights are: \n" + listOfOps);
 				break;
 		}		
 		return switchNumber;
@@ -89,10 +89,10 @@ public class Light {
 		Window output = new Window();
 		if(this.isOn == true){
 		this.isOn = false;
-		output.makeOutputWindow("The lights are now off");
+		output.makeOutputWindow("The Lights are now off");
 		}
 		else{
-			output.makeOutputWindow("The alarm is already off");
+			output.makeOutputWindow("The Lights are already off");
 		}
 	}
 	public void turnLightsOn(){

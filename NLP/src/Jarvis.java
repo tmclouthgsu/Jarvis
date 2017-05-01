@@ -14,7 +14,7 @@ public class Jarvis {
 	static Light testLight = new Light();
 	static Television testTelevision = new Television();
 	static Oven testOven = new Oven();
-	//static Spotify testSpotify = new Spotify();
+	static Spotify testSpotify = new Spotify();
 	static Door testDoor = new Door();
 	static Toaster testToaster = new Toaster();
 	
@@ -31,8 +31,7 @@ public class Jarvis {
 		Window outputWindow = new Window();
 		
 		//Get input from User
-		String[] input = inputWindow.makeInputWindow().split(Pattern.quote("."));
-		
+		String[] input = inputWindow.makeInputWindow().split(Pattern.quote("."));		
 			
 		
 		// case statement for picking the function based on the most matched function
@@ -68,7 +67,7 @@ public class Jarvis {
 		testToaster.doSomething(taggedInput);
 		break;
 		case 8: System.out.println("sending to spotify");
-		//testSpotify.doSomething(taggedInput);		
+		testSpotify.doSomething(taggedInput);		
 		break;
 		case 9: System.out.println("sending to cameras");
 		testCamera.doSomething(taggedInput);
@@ -83,14 +82,16 @@ public class Jarvis {
 		}
 			}
 			catch (ClassNotFoundException e) {
-				//too lazy to handle exceptions on the sunday before it is due monday
+				//too lazy to handle exceptions
 				e.printStackTrace();
 			} catch (IOException e) {
-				//too lazy to handle exceptions on the sunday before it is due monday
+				//too lazy to handle exceptions
 				e.printStackTrace();
 			}
 		}
-		System.exit(0);
+		String[] goAgain = {};
+		main(goAgain);
+		
 
 	}
 

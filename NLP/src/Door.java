@@ -19,13 +19,13 @@ public class Door {
 	/*1*/ String[] openDoorLem = {"open"};
 	/*2*/ String[] closeDoorLem = {"close","shut"};
 	/*3*/ String[] lockDoorLem = {"lock","secure"};
-	/*4*/ String[] unlockDoorLem = {"unlock"};
+	/*4*/ String[] unlockDoorLem = {"unlock","unsecure"};
 	
 	//do not edit -- lemmatization method -- do not edit
 	public int lemLayer2(String[][] sentence){
 		
 		//do not edit -- lemmatiztion must have variables for finding the correct output function -- do not edit
-		int[] counter = new int[100];
+		int[] counter = new int[5];
 		int switchNumber = 0;
 		int switchMax = 0;
 		int errorLevel = 0;
@@ -46,7 +46,7 @@ public class Door {
 				}				
 			}
 			for(int k=0; k<lockDoorLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((lockDoorLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().equals((lockDoorLem[k].toLowerCase()))){
 				counter[3]++;
 				}				
 			}
@@ -105,6 +105,7 @@ public class Door {
 		Window output = new Window();
 		if(this.isOpen == false){
 			this.isOpen = true;
+			this.isLocked = false;
 			output.makeOutputWindow("the door is now open");
 		}
 		else{
@@ -125,6 +126,7 @@ public class Door {
 		Window output = new Window();
 		if(this.isLocked == false){
 		this.isLocked = true;
+		this.isOpen = false;
 		output.makeOutputWindow("the door is now locked");
 	   }
 		else{

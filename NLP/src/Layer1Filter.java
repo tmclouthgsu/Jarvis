@@ -7,13 +7,13 @@ public class Layer1Filter {
 		
 		//lemmatization layer 1 arrays - weighting is done by the number of times the word appears in the array.
 		/*1*/ String[] curtainsLem = {"curtain","drape","blind","curtain","blind"};
-		/*2*/ String[] thermostatLem = {"thermostat","temperature","heating","a/c","air","conditioning","house","temp","thermostat","temperature","heating","a/c","air","conditioning","thermostat","temperature","heating","a/c","thermostat","temperature"};
+		/*2*/ String[] thermostatLem = {"thermostat","heating","a/c","air","conditioning","house","thermostat","heating","a/c","air","conditioning","thermostat","heating","a/c","thermostat"};
 		/*3*/ String[] televisionLem = {"television","channel","source","tv","tele","watch","program","television","channel","tv","television"};
 		/*4*/ String[] lightsLem = {"light","lights","lighting","lights","bright"};
 		/*5*/ String[] doorsLem = {"door","lock","unlock","door","outside"};
 		/*6*/ String[] ovenLem = {"oven","bake","broiler","burner","stove","cook"};
 		/*7*/ String[] toasterLem = {"toaster","toast","toast","toast","toast"};
-		/*8*/ String[] spotifyLem = {"spotify","music","song","stream","shuffle","play","play","playlist"};
+		/*8*/ String[] spotifyLem = {"spotify","music","song","stream","shuffle","play","play","playlist","spotify","spotify","spotify","spotify","spotify","spotify","spotify"};
 		/*9*/ String[] camerasLem = {"camera","shoot","snap","picture","video","record","watch"};
 		/*10*/String[] alarmLem = {"alarm","alarm","alarm","police","emergency"};
 		
@@ -22,7 +22,7 @@ public class Layer1Filter {
 		//lemmatization method
 		public int lemLayer1(String[][] sentence){
 			
-			int[] counter = new int[100];
+			int[] counter = new int[11];
 			int switchNumber= 0;
 			int switchMax=0;
 			int errorLevel=0;
@@ -38,7 +38,7 @@ public class Layer1Filter {
 					}				
 				}
 				for(int k=0; k<thermostatLem.length;k++){
-					if(sentence[i][0].toLowerCase().contains((thermostatLem[k].toLowerCase()))){
+					if(sentence[i][0].toLowerCase().startsWith((thermostatLem[k].toLowerCase()))){
 					counter[2]++;
 					}				
 				}

@@ -1,9 +1,9 @@
 	public class Camera {
 		
 		//variables used by this class, go ahead and edit these as you need for your functions and class templates.
-			boolean isOn;
-			int isRecording;			
-			String listOfOps = "Turn Camera on | Turn Camera off | Camera Recording";
+			boolean isOn = false;
+			boolean isRecording = false;			
+			String listOfOps = "Turn Camera on | Turn Camera off | Start recording";
 			
 			//class constructor -- edit for your class name
 			public Camera(){		
@@ -15,15 +15,15 @@
 			}
 			
 			//lemmatization layer 1 arrays -- edit with your values
-			/*1*/ String[] onLem = {"on"};
-			/*2*/ String[] offLem = {"off"};
-			/*3*/ String[] isRecordingLem = {"start","recording"};
+			/*1*/ String[] onLem = {"on","on"};
+			/*2*/ String[] offLem = {"off","off"};
+			/*3*/ String[] isRecordingLem = {"start","record"};
 
 			//do not edit -- lemmatization method -- do not edit
 			public int lemLayer2(String[][] sentence){
 				
 				//do not edit -- lemmatization must have variables for finding the correct output function -- do not edit
-				int[] counter = new int[100];
+				int[] counter = new int[4];
 				int switchNumber = 0;
 				int switchMax = 0;
 				int errorLevel = 0;
@@ -88,7 +88,7 @@
 				case 3: //System.out.println("camera method isRecording");
 						this.isRecording();
 						break;
-				default:output.makeOutputWindow("We were unable to find a command that matched your request. \nThe list of availble operations for the Oven are: " + listOfOps);
+				default:output.makeOutputWindow("We were unable to find a command that matched your request. \nThe list of availble operations for the Camera are: " + listOfOps);
 						break;
 				}		
 				return switchNumber;
@@ -101,6 +101,7 @@
 				Window output = new Window();
 				if(this.isOn == true){
 				this.isOn = false;
+				this.isRecording = false;
 				output.makeOutputWindow("The camera is now off");
 				}	
 				else{
@@ -121,8 +122,14 @@
 			
 			private void isRecording(){
 				Window output = new Window();
-				if(this.isOn = true){
-				output.makeOutputWindow("The camera is now recording");
+				if(this.isOn == true){
+					if(this.isRecording == false){
+						this.isRecording = true;
+						output.makeOutputWindow("The camera is now recording");
+					}
+					else{
+						output.makeOutputWindow("The camera is already recording");
+					}
 			}
 				else
 					output.makeOutputWindow("The camera must be on to record");

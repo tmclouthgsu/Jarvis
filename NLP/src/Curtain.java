@@ -18,18 +18,19 @@
 			
 			//lemmatization layer 1 arrays -- edit with your values
 			String[] openCurtainsLem = {"open"};
-			String[] closeCurtainsLem = {"close"};
+			String[] closeCurtainsLem = {"close","draw"};
 
 		//lemmatiztion must have variables for finding the correct output function -- do not edit				
 				
 				//lemmatization method -- do not edit
 				public int lemLayer2(String[][] sentence){
 					
-					int[] counter = new int[100];
+					int[] counter = new int[3];
 					int switchNumber = 0;
-					int switchMax= 0;
-					int errorLevel =0;
+					int switchMax = 0;
+					int errorLevel = 0;
 					String errorInput = "";
+					Window output = new Window();
 					
 					
 					//iterate through sentence and count the matches for each layer 2 word -- edit the names of the arrays to match your layer 2 word arrays.
@@ -66,27 +67,22 @@
 						for(int i=0; i<sentence.length;i++){
 							errorInput += (sentence[i][0] + " ");
 						}
-						System.out.println("We were unable to determine what change you were trying to make, could you please try this command again:" + errorInput);
+						output.makeOutputWindow("We were unable to determine what change you were trying to make, could you please try to rephrase this command:" + errorInput);
 						return 99;
 					}
 					
 					
 					switch (switchNumber){
-					
-					
-					case 1: System.out.println("sending to case 1");
+					case 1: //System.out.println("sending to case 1");
 							openCurtains(sentence);
 							break;
-					case 2: System.out.println("sendind to case 2");
+					case 2: //System.out.println("sendind to case 2");
 							closeCurtains(sentence);		
 							break;					
-					default:System.out.println("Nothing in the input sentence matched one of your arrays.");
-							break;
+					default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Curtains are: " + listOfOps);
+						break;
 					}
-				
-					
 					return switchNumber;
-
 				}		
 					
 				public void openCurtains(String[][] input){
@@ -104,7 +100,7 @@
 				//method to close curtains 
 				public void closeCurtains(String[][] input){
 					Window output = new Window();
-					if(this.isOpen != false){
+					if(this.isOpen == true){
 						this.isOpen = false;
 						output.makeOutputWindow("I closed the curtains");
 					}

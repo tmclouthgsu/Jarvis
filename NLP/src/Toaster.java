@@ -20,17 +20,12 @@ public class Toaster {
 		/*3*/ String[] setLowLem = {"low"};
 		/*4*/ String[] setOnLem = {"on"};
 		/*5*/ String[] setOffLem = {"off"};
-		/*6 String[] ovenLem = {"close"};
-		/*7 String[] toasterLem = {"close"};
-		/*8 String[] spotifyLem = {"close"};
-		/*9 String[] camerasLem = {"close"};
-		/*10String[] alarmLem = {"close"};*/
 		
 		//do not edit -- lemmatization method -- do not edit
 		public int lemLayer2(String[][] sentence){
 			
 			//do not edit -- lemmatiztion must have variables for finding the correct output function -- do not edit
-			int[] counter = new int[100];
+			int[] counter = new int[6];
 			int switchNumber = 0;
 			int switchMax = 0;
 			int errorLevel = 0;
@@ -120,16 +115,19 @@ public class Toaster {
 		public void setHigh(){
 			Window output = new Window();
 			this.heat = "High";
+			this.isOn = true;
 			output.makeOutputWindow("Setting the toaster to high.");
 		}
 		public void setMedium(){
 			Window output = new Window();
 			this.heat = "Medium";
+			this.isOn = true;
 			output.makeOutputWindow("Setting the toaster to medium.");
 		}
 		public void setLow(){
 			Window output = new Window();
 			this.heat = "Low";
+			this.isOn = true;
 			output.makeOutputWindow("Setting the toaster to Low.");
 		}
 		public void turnOn(){
@@ -138,6 +136,7 @@ public class Toaster {
 				output.makeOutputWindow("The toaster is already on.");
 			}
 			else{
+				this.isOn = true;
 				output.makeOutputWindow("Turning the toaster on.");
 			}
 		}
@@ -147,6 +146,7 @@ public class Toaster {
 				output.makeOutputWindow("The toaster is already off");
 			}
 			else{
+				this.isOn = false;
 				output.makeOutputWindow("Turning the toaster off.");
 			}
 

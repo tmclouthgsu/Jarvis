@@ -22,7 +22,7 @@ public class Alarm {
 	public int lemLayer2(String[][] sentence){
 		
 		//do not edit -- lemmatiztion must have variables for finding the correct output function -- do not edit
-		int[] counter = new int[100];
+		int[] counter = new int[4];
 		int switchNumber = 0;
 		int switchMax = 0;
 		int errorLevel = 0;

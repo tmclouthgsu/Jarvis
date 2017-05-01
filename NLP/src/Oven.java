@@ -18,17 +18,17 @@ public class Oven {
 		}
 		
 		//lemmatization layer 1 arrays -- edit with your values
-		/*1*/ String[] turnOnLem = {"on","bake","heat","on","bake","heat"};
-		/*2*/ String[] setTemperatureLem = {"set","temperature","increase","decrease","set","temperature","increase","decrease"};
-		/*3*/ String[] cookingTimeLem = {"time","left","for"};
-		/*4*/ String[] getTemperature = {"what","how"};
+		/*1*/ String[] turnOnLem = {"on","on","on","cook","bake","start"};
+		/*2*/ String[] setTemperatureLem = {"temperature","set","set","set","set","set","set","set"};
+		/*3*/ String[] cookingTimeLem = {"time","time","time","time","minutes","minutes","minutes"};
+		/*4*/ String[] getTemperature = {"check","check","check","check","what","what","what","what","what","get","get","get","get","tell"};
 		/*5*/ String[] turnOffLem = {"off","off","off"};
 
 		//do not edit -- lemmatization method -- do not edit
 		public int lemLayer2(String[][] sentence){
 			
 			//do not edit -- lemmatization must have variables for finding the correct output function -- do not edit
-			int[] counter = new int[100];
+			int[] counter = new int[6];
 			int switchNumber = 0;
 			int switchMax = 0;
 			int errorLevel = 0;
@@ -39,12 +39,12 @@ public class Oven {
 			for(int i=0; i<sentence.length;i++){
 				
 				for(int k=0; k<turnOnLem.length;k++){
-					if(sentence[i][0].toLowerCase().contains((turnOnLem[k].toLowerCase()))){
+					if(sentence[i][0].toLowerCase().equals((turnOnLem[k].toLowerCase()))){
 					counter[1]++;
 					}				
 				}
 				for(int k=0; k<setTemperatureLem.length;k++){
-					if(sentence[i][0].toLowerCase().contains((setTemperatureLem[k].toLowerCase()))){
+					if(sentence[i][0].toLowerCase().equals((setTemperatureLem[k].toLowerCase()))){
 					counter[2]++;
 					}				
 				}
@@ -54,13 +54,13 @@ public class Oven {
 					}	
 				}		
 				for(int k=0; k<getTemperature.length;k++){
-						if(sentence[i][0].toLowerCase().contains((getTemperature[k].toLowerCase()))){
+						if(sentence[i][0].toLowerCase().equals((getTemperature[k].toLowerCase()))){
 						counter[4]++;	
 					}
 				}		
 						
 				for(int k=0; k<turnOffLem.length;k++){
-						if(sentence[i][0].toLowerCase().contains((turnOffLem[k].toLowerCase()))){
+						if(sentence[i][0].toLowerCase().equals((turnOffLem[k].toLowerCase()))){
 						counter[5]++;		
 					}
 				}
@@ -92,21 +92,21 @@ public class Oven {
 			switch (switchNumber){
 			
 			case 1: System.out.println("Oven method isOn");
-					this.turnOn();
+					turnOn();
 					break;
 			case 2: System.out.println("Oven method setTemperature");
-					this.setTemperature(sentence);
+					setTemperature(sentence);
 					break;
 			case 3: System.out.println("Oven method remainingTime");
-					this.cookingTime(sentence);
+					cookingTime(sentence);
 					break;
 			case 4: System.out.println("Oven method heating");
-					this.heating(sentence);
+					checkTemperature(sentence);
 					break;
 			case 5: System.out.println("Oven method isOff");
-					this.turnOff();
+					turnOff();
 					break;
-			default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Oven are: " + listOfOps);
+			default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Oven are: \n" + listOfOps);
 					break;
 			}		
 			return switchNumber;
@@ -142,7 +142,7 @@ public class Oven {
 			for(int k=0; k<input.length;k++){
 				if(input[k][1].contains("cd")){
 					this.temperature = Integer.parseInt(input[k][0]);
-				output.makeOutputWindow("Setting temperature to:" + this.temperature);
+				output.makeOutputWindow("Setting oven temperature to: " + this.temperature);
 				}
 			}
 		
@@ -158,9 +158,8 @@ public class Oven {
 			}
 		}
 
-		public void heating(String[][] input){
+		public void checkTemperature(String[][] input){
 			Window output = new Window();
-			this.isOn = true;
-			output.makeOutputWindow("Oven heating at:" + this.temperature) ;
+			output.makeOutputWindow("Current Temperature of the Oven is: " + this.temperature) ;
 		}		
 }

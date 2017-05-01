@@ -6,7 +6,7 @@ public class Thermostat {
 	boolean cutOn = false;
 	String mode = "A/C";
 	int temperature = 75;
-	String listOfOps = "Turn the thermostat on| Turn the thermostat off| Check the thermostat temperature| Set the thermostat temperature";
+	String listOfOps = "Turn the thermostat on | Turn the thermostat off | Check the thermostat temperature | Set the thermostat temperature";
 	Window output = new Window();
 
 	public void doSomething(String[][] taggedText) {
@@ -15,17 +15,20 @@ public class Thermostat {
 	
 	public Thermostat(){
 		
+		
+		
+		
 	}
 	
 	String[] cutOnLem = {"on"};
 	String[] turnOffLem = {"off"};
-	String[] checkTemperatureLem = {"check","degree","current","temperature"};
-	String[] setTemperatureLem ={"set","set","temperature"};
+	String[] checkTemperatureLem = {"check","current","check","get","what"};
+	String[] setTemperatureLem ={"set","set","change","hot","cold"};
 
 	public int lemLayer2(String[][] sentence){
 		
 		
-		int[] counter = new int[100];
+		int[] counter = new int[5];
 		int switchNumber = 0;
 		int switchMax = 0;
 		int errorLevel = 0;
@@ -34,12 +37,12 @@ public class Thermostat {
 		for(int i=0; i<sentence.length;i++){
 			
 			for(int k=0; k<cutOnLem.length;k++){
-				if(sentence[i][0].toLowerCase().startsWith((cutOnLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().equals((cutOnLem[k].toLowerCase()))){
 				counter[1]++;
 				}				
 			}
 			for(int k=0; k<turnOffLem.length;k++){
-				if(sentence[i][0].toLowerCase().contains((turnOffLem[k].toLowerCase()))){
+				if(sentence[i][0].toLowerCase().equals((turnOffLem[k].toLowerCase()))){
 				counter[2]++;
 				}				
 			}
@@ -73,7 +76,7 @@ public class Thermostat {
 		for(int i=0; i<sentence.length;i++){
 			errorInput += (sentence[i][0] + " ");
 		}
-		output.makeOutputWindow("We were unable to determine what change you were trying to make, could you please try this command again:" + errorInput);
+		output.makeOutputWindow("We were unable to determine what change you were trying to make, could you rephrase this command:" + errorInput);
 		return 99;
 	}
 	
@@ -93,7 +96,7 @@ public class Thermostat {
 	case 4: System.out.println("set temp");
 			setTemperature(sentence);
 			break;
-	default:output.makeOutputWindow("Nothing in the input sentence matched one of your arrays.");
+	default:output.makeOutputWindow("We were unable to find a command that matched your request. The list of availble operations for the Thermostat are: \n" + listOfOps);
 	break;
 	
 		}
@@ -107,7 +110,7 @@ public class Thermostat {
 		for(int k=0; k<input.length;k++){
 			if(input[k][1].contains("cd")){
 					this.temperature = Integer.parseInt(input[k][0]);
-					output.makeOutputWindow("setting the temperature to " + this.temperature);
+					output.makeOutputWindow("The temperature is now set to " + this.temperature);
 			}				
 		}
 		
@@ -117,7 +120,7 @@ public class Thermostat {
 		Window output = new Window();
 		if(this.cutOn == false){
 			this.cutOn = true;
-			output.makeOutputWindow("I turned on Thermostat");
+			output.makeOutputWindow("The thermostat is now on");
 		}
 		else{
 			output.makeOutputWindow("Thermostat is already on.");
@@ -130,7 +133,7 @@ public class Thermostat {
 		Window output = new Window();
 		if(this.cutOn == true){
 			this.cutOn = false;
-			output.makeOutputWindow("I cut off thermostat");
+			output.makeOutputWindow("The thermostat is now off");
 		}
 		else{
 			output.makeOutputWindow("The thermostat is already off");
